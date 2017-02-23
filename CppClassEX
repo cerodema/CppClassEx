@@ -73,9 +73,27 @@ void Animal::toString()
     this ->  weight << " Kgs " << endl;    
 }
 
+void stringArray();
+
+void stringArray() 
+{
+    string arr[] = {"Pain", "Eating","Ameba","Psycho"};    
+    int size = 4;
+    
+    for(int i = 0; i < size; i++)
+    {
+        cout << arr[i] << endl;    
+    }
+
+}
+
 int main()
 {
+    // declare class
     Animal monk;
+    
+    Animal tiger = Animal(40, 10, "Cat");
+   
     
     monk.setHeight(33);
     monk.setWeight(15);
@@ -84,6 +102,9 @@ int main()
     cout << monk.getName() << " is " << monk.getHeight() << " cms tall and weights " << 
         monk.getWeight() << " Kgs. " << endl;
     
+    cout << "There are " << tiger.getNumberOfAnimals() << " animals." << endl;
+    
+    stringArray();
     
     return 0;
 }
