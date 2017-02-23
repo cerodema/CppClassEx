@@ -1,0 +1,89 @@
+// Example program
+#include <iostream>
+#include <string>
+
+using namespace std;
+// program to test classes in cpp
+
+class Animal 
+{
+    private:
+        int height;
+        int weight;
+        string name;
+        
+        static int numberOfAnimals;
+    
+    public:
+        int getHeight(){return height; }
+        int getWeight(){return weight; }
+        string  getName(){return name; }
+        
+        void setHeight(int cm){ height = cm; }
+        void setWeight(int kg){ weight = kg; }
+        void setName(string AnimalName){ name = AnimalName; }
+        
+        void setAll(int, int, string);
+        Animal(int, int, string);
+        
+         Animal();  // constructor overloading
+        ~Animal(); // detructor
+         
+        
+        void toString();
+        
+        static int getNumberOfAnimals(){ return numberOfAnimals; }
+
+};
+
+int Animal::numberOfAnimals = 0;
+
+Animal::Animal(int cm, int kg, string aName )
+{
+    this -> height = cm;    
+    this -> weight = kg; 
+    this -> name = aName; 
+    
+    Animal::numberOfAnimals++;    
+    
+}
+
+Animal::Animal()
+{
+    Animal::numberOfAnimals++;        
+}
+
+Animal::~Animal()
+{
+    cout << "The Animal " << this -> name << " was destroid." << endl;    
+}
+
+void Animal::setAll(int cm, int kg, string aName){
+    
+    this -> height = cm;    
+    this -> weight = kg; 
+    this -> name = aName; 
+    
+    Animal::numberOfAnimals++;
+}
+
+void Animal::toString()
+{
+    cout << this -> name << " is " << this -> height << " Cms tall and weights: " <<
+    this ->  weight << " Kgs " << endl;    
+}
+
+int main()
+{
+    Animal monk;
+    
+    monk.setHeight(33);
+    monk.setWeight(15);
+    monk.setName("Chimp");
+    
+    cout << monk.getName() << " is " << monk.getHeight() << " cms tall and weights " << 
+        monk.getWeight() << " Kgs. " << endl;
+    
+    
+    return 0;
+}
